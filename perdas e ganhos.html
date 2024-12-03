@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdas e Ganhos - Bugz Company</title>
+
+    <!-- Link para o CSS -->
+    <link href="home page.css" rel="stylesheet">
+    <link href="compra-produto.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo da Empresa Bugz" style="height: 40px; margin-right: 10px;">
+               
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alternativa de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="textoNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Página inicial <span class="sr-only">(Página atual)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="últimos Lançamentos.html">Últimos Lançamentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre-nos.html">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrinho.html">Carrinho <span id="cartCount" class="badge badge-light">0</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5">
+        <div class="row">
+            <div class="col-md-7"> <!-- Aumentei a largura para 7/12 da tela -->
+                <!-- Carrossel de imagens do produto -->
+                <div id="productCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" id="carouselImages">
+                        <div class="carousel-item active">
+                            <img src="1p.png" class="d-block w-100" alt="Imagem 1 do produto" id="mainImage">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="2p.png" class="d-block w-100" alt="Imagem 2 do produto">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="3p.png" class="d-block w-100" alt="Imagem 3 do produto">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="4p.png" class="d-block w-100" alt="Imagem 4 do produto">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                    <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Próximo</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-5"> <!-- Diminuí a largura para 5/12 da tela -->
+                <!-- Detalhes do produto -->
+                <h2>Perdas e Ganhos</h2>
+                <p class="lead">R$ 94,90</p>
+                <p><strong>Descrição:</strong></p>
+                <p>A peça "Perdas e Ganhos" foi criada para refletir a dualidade entre os desafios e as vitórias da vida. Com um design contemporâneo, esta camiseta transmite uma mensagem profunda sobre como cada perda pode abrir caminho para novos ganhos. Ideal para quem entende que cada obstáculo superado é uma oportunidade para crescer.</p>
+
+                <!-- Opções de cor -->
+                <p><strong>Escolha a cor:</strong></p>
+                <div class="btn-group" role="group" aria-label="Opções de cor">
+                    <button type="button" class="btn btn-secondary" id="pretoBtn" onclick="changeColor('preto')">Preto</button>
+                    <button type="button" class="btn btn-secondary" id="brancoBtn" onclick="changeColor('branco')">Branco</button>
+                </div>
+
+                <p id="selectedColor" class="mt-3">Cor selecionada: Nenhuma</p>
+
+                <!-- Seleção de Tamanho -->
+                <p><strong>Escolha o Tamanho:</strong></p>
+                <div class="btn-group" role="group" aria-label="Opções de Tamanho">
+                    <button type="button" class="btn btn-secondary" id="PBtn" onclick="selectSize('P')">P</button>
+                    <button type="button" class="btn btn-secondary" id="MBtn" onclick="selectSize('M')">M</button>
+                    <button type="button" class="btn btn-secondary" id="GBtn" onclick="selectSize('G')">G</button>
+                    <button type="button" class="btn btn-secondary" id="GGBtn" onclick="selectSize('GG')">GG</button>
+                </div>
+
+                <p id="selectedSize" class="mt-3">Tamanho selecionado: Nenhum</p>
+
+                <!-- Seleção de Corte -->
+                <p><strong>Escolha o Corte:</strong></p>
+                <div class="btn-group" role="group" aria-label="Opções de Corte">
+                    <button type="button" class="btn btn-secondary" id="oversizedBtn" onclick="selectCut('Oversized')">Oversized</button>
+                    <button type="button" class="btn btn-secondary" id="comumBtn" onclick="selectCut('Comum')">Comum</button>
+                </div>
+
+                <p id="selectedCut" class="mt-3">Corte selecionado: Nenhum</p>
+
+                <!-- Botão para adicionar ao carrinho -->
+                <button class="btn btn-primary btn-lg" onclick="addToCart('Perdas e Ganhos', 94.90, '1p.png')">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+
+        <!-- Método de pagamento -->
+        <div class="mt-5">
+            <h4>Forma de pagamento</h4>
+            <form>
+                <div class="form-group">
+                    <label for="cardNumber">Número do Cartão</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="Digite o número do cartão" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiryDate">Data de Validade</label>
+                    <input type="text" class="form-control" id="expiryDate" placeholder="MM/AA" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="Código de segurança" required>
+                </div>
+                <button type="submit" class="btn btn-success">Finalizar Compra</button>
+            </form>
+        </div>
+
+        <!-- Últimos Lançamentos -->
+        <section class="container mt-5">
+            <h1 class="text-center">ÚLTIMOS LANÇAMENTOS</h1>
+            <div class="row">
+                <!-- Produto 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card produto">
+                        <img src="1p.png" class="card-img-top imagem-principal" alt="Produto 1">
+                        <img src="3p.png" class="card-img-top imagem-hover" alt="Produto 1 Hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Perdas e Ganhos</h5>
+                            <p class="card-text">R$ 94,90</p>
+                            <a href="perdas e ganhos.html"><button class="btn btn-primary">Comprar</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card produto">
+                        <img src="1t.png" class="card-img-top imagem-principal" alt="Produto 2">
+                        <img src="3t.png" class="card-img-top imagem-hover" alt="Produto 2 Hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Toques</h5>
+                            <p class="card-text">R$ 94,90</p>
+                            <a href="toques.html"><button class="btn btn-primary">Comprar</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card produto">
+                        <img src="1f.png" class="card-img-top imagem-principal" alt="Produto 3">
+                        <img src="3f.png" class="card-img-top imagem-hover" alt="Produto 3 Hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Futuro presente</h5>
+                            <p class="card-text">R$ 94,90</p>
+                            <a href="amanhecer.html"><button class="btn btn-primary">Comprar</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        let cart = [];
+
+        // Função para adicionar ao carrinho
+        function addToCart(name, price, image) {
+            const color = document.getElementById('selectedColor').textContent.split(': ')[1];
+            const size = document.getElementById('selectedSize').textContent.split(': ')[1];
+            const cut = document.getElementById('selectedCut').textContent.split(': ')[1];
+
+            if (color === 'Nenhuma' || size === 'Nenhum' || cut === 'Nenhum') {
+                alert('Por favor, selecione todas as opções');
+                return;
+            }
+
+            const product = {
+                name: name,
+                price: price,
+                image: image,
+                color: color,
+                size: size,
+                cut: cut,
+                quantity: 1
+            };
+
+            // Verifica se o produto já existe no carrinho
+            let existingProduct = cart.find(item => item.name === name && item.color === color && item.size === size && item.cut === cut);
+
+            if (existingProduct) {
+                // Se o produto já existir, apenas aumente a quantidade
+                existingProduct.quantity++;
+            } else {
+                // Caso contrário, adicione o produto ao carrinho
+                cart.push(product);
+            }
+
+            saveCartToLocalStorage();
+            updateCartCount();
+        }
+
+        // Função para salvar o carrinho no localStorage
+        function saveCartToLocalStorage() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Função para atualizar o contador de itens no carrinho
+        function updateCartCount() {
+            document.getElementById('cartCount').textContent = cart.length;
+        }
+
+        // Recupera o carrinho do localStorage quando a página carrega
+        window.onload = function () {
+            const storedCart = JSON.parse(localStorage.getItem('cart'));
+            if (storedCart) {
+                cart = storedCart;
+                updateCartCount();
+            }
+        };
+
+        // Funções de seleção de cor, tamanho e corte
+        function changeColor(color) {
+            document.getElementById('selectedColor').textContent = 'Cor selecionada: ' + color;
+        }
+
+        function selectSize(size) {
+            document.getElementById('selectedSize').textContent = 'Tamanho selecionado: ' + size;
+        }
+
+        function selectCut(cut) {
+            document.getElementById('selectedCut').textContent = 'Corte selecionado: ' + cut;
+        }
+    </script>
+</body>
+
+</html>
+
+</html>

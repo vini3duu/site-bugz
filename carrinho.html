@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    
+    <link href="home page.css" rel="stylesheet">
+    <link href="carrinho.css" rel="stylesheet">
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Bugz Company</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="textoNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="últimos Lançamentos.html">Últimos Lançamentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrinho.html">Carrinho <span id="cartCount" class="badge badge-pill badge-danger">0</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5">
+        <h2>Carrinho de Compras</h2>
+
+        <div id="cartItems">
+            <!-- Itens do carrinho serão carregados aqui -->
+        </div>
+
+        <div id="totalPrice">
+            <!-- Preço total será exibido aqui -->
+        </div>
+
+        <button class="btn btn-danger mt-3" onclick="clearCart()">Limpar Carrinho</button>
+        <button class="btn btn-primary mt-3" onclick="checkout()">Finalizar Compra</button>
+    </main>
+
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Bugz Company. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        let cart = [];
+
+        window.onload = function() {
+            // Carregar o carrinho do LocalStorage
+            const storedCart = JSON.parse(localStorage.getItem('cart'));
+            if (storedCart) {
+                cart = storedCart;
+                displayCartItems();
+                calculateTotal();
+            }
+            updateCartCount();
+        };
+
+        // Exibe os itens no carrinho
+        function displayCartItems() {
+            const cartItemsDiv = document.getElementById('cartItems');
+            cartItemsDiv.innerHTML = ''; // Limpa o conteúdo anterior
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p>Seu carrinho está vazio.</p>';
+            } else {
+                cart.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('card', 'mb-3');
+                    cartItem.innerHTML = `
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="${item.image}" class="card-img" alt="${item.name}">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.name} - ${item.color}</h5>
+                                    <p class="card-text">R$ ${item.price.toFixed(2)}</p>
+                                    <p class="card-text">Quantidade: ${item.quantity}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsDiv.appendChild(cartItem);
+                });
+            }
+        }
+
+        // Calcula o total do carrinho
+        function calculateTotal() {
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+            });
+            document.getElementById('totalPrice').textContent = 'Total: R$ ' + total.toFixed(2);
+        }
+
+        // Atualiza o contador de itens no carrinho
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            cartCount.textContent = cart.length;
+        }
+
+        // Finaliza a compra (apenas exibe uma mensagem por enquanto)
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio. Adicione itens antes de finalizar a compra.');
+                return;
+            }
+            alert('Processo de compra finalizado!');
+            clearCart(); // Limpar o carrinho após a compra
+        }
+
+        // Limpa o carrinho
+        function clearCart() {
+            cart = []; // Limpar o carrinho
+            localStorage.removeItem('cart'); // Remover do localStorage
+            displayCartItems(); // Atualizar a exibição dos itens
+            calculateTotal(); // Recalcular o total
+            updateCartCount(); // Atualizar o contador de itens
+        }
+    </script>
+</body>
+
+</html>

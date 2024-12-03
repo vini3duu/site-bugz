@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Bugz Company</title>
+
+    <!-- Link para o CSS -->
+    <link href="home page.css" rel="stylesheet">
+    <link href="contato.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome para ícones de mídias sociais -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo da Empresa Bugz" style="height: 40px; margin-right: 10px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alternativa de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="textoNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Página inicial <span class="sr-only">(Página atual)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="últimos Lançamentos.html">Últimos Lançamentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre-nos.html">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrinho.html">Carrinho <span id="cartCount" class="badge badge-light">0</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5">
+        <h1 class="text-center mb-5">Entre em Contato Conosco</h1>
+
+        <!-- Informações de Contato -->
+        <section>
+            <h3>Informações de Contato</h3>
+            <p><strong>E-mail:</strong> bugzcomp@gmail.com</p>
+            <p><strong>Telefone:</strong>(51) 99633-4972</p>
+        </section>
+
+        <!-- Formulário de Contato -->
+        <section>
+            <h3>Envie sua Mensagem</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Seu Nome</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Seu E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            </form>
+            <div id="responseMessage" class="mt-3"></div>
+        </section>
+    </main>
+
+    <!-- Botões de Mídias Sociais (Instagram e TikTok) -->
+    <footer class="text-center mt-5">
+        <div>
+            <a href="https://www.instagram.com/bugz.company" target="_blank" class="btn btn-social-icon btn-instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@bugz.company" target="_blank" class="btn btn-social-icon btn-tiktok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Empresa Bugz. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your user ID
+        emailjs.init('YOUR_USER_ID'); // Substitua YOUR_USER_ID pelo seu User ID do EmailJS
+    </script>
+</body>
+
+</html>

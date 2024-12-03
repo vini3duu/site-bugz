@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #f8f9fa;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form .form-control {
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#responseMessage {
+    margin-top: 20px;
+}
+
+.alert {
+    font-size: 18px;
+    font-weight: bold;
+}
